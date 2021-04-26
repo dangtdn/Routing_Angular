@@ -13,15 +13,18 @@ import { Component, OnInit } from '@angular/core';
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
           <a class="nav-link"
-          routerLink="/home">Home <span class="sr-only">(current)</span></a>
+          routerLink="/home"
+          routerLinkActive="bg-light text-dark">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
-          routerLink="/login">Login</a>
+          routerLink="/login"
+          routerLinkActive="bg-light text-dark">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
-          routerLink="/register">Register</a>
+          routerLink="/register"
+          routerLinkActive="bg-light text-dark">Register</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>

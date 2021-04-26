@@ -5,8 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeTemplateComponent } from './home-template/home-template.component';
 import { HeaderComponent } from './home-template/header/header.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+// Cấu hình route cho home module
 
+const HomeRoute: Routes = [
+  {path: '', component:HomeTemplateComponent, children:[
+    {path:'', component:HomePageComponent},
+    {path:'homepage', component:HomePageComponent}
+  ]}
+]
 
 
 @NgModule({
@@ -18,7 +25,8 @@ import { RouterModule } from '@angular/router';
     HeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(HomeRoute)
   ],
   exports: [HeaderComponent]
 })

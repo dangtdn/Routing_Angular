@@ -8,24 +8,29 @@ import { LoginComponent } from './Modules/home/login/login.component';
 import { RegisterComponent } from './Modules/home/register/register.component';
 import { HomePageComponent } from './Modules/home/home-page/home-page.component';
 import { HeaderComponent } from './Modules/home/home-template/header/header.component';
+import { HomeModule } from './Modules/home/home.module';
+import { UserModule } from './Modules/user/user.module';
+// Thư viện gọi api
+import {HttpClientModule} from '@angular/common/http'
+import { CourseService } from './_core/services/course.service';
 
 const appRoutes:Routes = [
 
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'home',component:HomePageComponent},
+  // {path:'login',component:LoginComponent},
+  {path:'user',loadChildren: () => UserModule},
+  {path:'home', loadChildren:() => HomeModule},
   {path:'',component:HomePageComponent}
 ]
 
 @NgModule({
   declarations: [
-    AppComponent, HeaderComponent
+    AppComponent
   ],
   imports: [
     // Router module này sẽ điều hướng cho thẻ <router-outlet></router-outlet> tại app component
-    BrowserModule,RouterModule.forRoot(appRoutes)
+    BrowserModule,RouterModule.forRoot(appRoutes), HttpClientModule
   ],
-  providers: [],
+  providers: [CourseService], //provider là nơi import các service sử dụng cho module đó
   bootstrap: [AppComponent]
 })
 export class AppModule { }
